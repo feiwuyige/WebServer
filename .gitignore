@@ -1,0 +1,13 @@
+# Ignore Visual Studio generated files
+GateServer/.vs/
+*.vcxproj.user
+*.user
+*.suo
+*.ipch
+*.obj
+*.exe
+*.dll
+*.pdb
+*.db
+GateServer/GateServer/
+GateServer/x64
