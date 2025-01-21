@@ -28,12 +28,14 @@ void RegisterDialog::on_TestBtn_clicked()
 {
     //判断邮箱是否符合条件
     auto email = ui->EmailEdit->text();
-    //qDebug() << email;
     QRegularExpression regex(R"((\w+)(\.|_)?(\w*)@(\w+)(\.(\w+))+)");
     bool match = regex.match(email).hasMatch();
-    //qDebug() << match;
     if(match){
-        //发送验证码
+        //发送http验证码
+        QJsonObject json_obj;
+        json_obj["email"] = email;
+        HttpManager::GetInstance()->PostHttpReq(QUrl(gate_url_prefix + "/get_varifycode"),
+                                                json_obj, ReqId::ID_GET_VARIFY_CODE, Modules::REGISTERMOD);
 
     }
     else{
@@ -71,9 +73,10 @@ void RegisterDialog::showTip(QString str, bool ok)
         ui->ErrorLabel->setProperty("state", "normal");
     }
     else{
-        ui->ErrorLabel->setText(str);
+        ui->ErrorLabel->setProperty("state", "err");
     }
-    ui->ErrorLabel->setProperty("state", "err");
+    ui->ErrorLabel->setText(str);
+
     repolish(ui->ErrorLabel);
 }
 

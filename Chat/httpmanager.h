@@ -24,9 +24,10 @@ private:
     friend class Singleton<HttpManager>; //声明友元类，从而可以使得友元类可以调用构造函数
     HttpManager();
     QNetworkAccessManager _manager;
+
+public:
     //后面两个参数是因为采用异步发送的方式，回调函数执行的时候需要知道是哪一个模块的哪一个请求
     void PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod);
-public:
     ~HttpManager();
 private slots:
     void slot_http_finish(ReqId id, QString res, ErrorCodes err, Modules mod);

@@ -37,3 +37,22 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+DISTFILES += \
+    config.ini
+
+win32:CONFIG(debug, debug | release)
+{
+    # target file
+    TargetConfig = $${PWD}/config.ini
+    TargetConfig = $$replace(TargetConfig, /, \\)
+    # output directory
+    OutputDir =  $${OUT_PWD}/$${DESTDIR}
+    OutputDir = $$replace(OutputDir, /, \\)
+    # copy
+    QMAKE_POST_LINK += $$QMAKE_COPY_DIR \"$$TargetConfig\" \"$$OutputDir\" > log.txt
+    #QMAKE_POST_LINK += cmd /C copy \"$$TargetConfig\" \"$$OutputDir\" > log.txt
+    #QMAKE_POST_LINK += cmd /C copy $$shell_path($$TargetConfig) $$shell_path($$OutputDir)
+}
+
+
