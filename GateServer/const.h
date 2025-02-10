@@ -18,6 +18,9 @@
 #include <queue>
 #include <mutex>
 #include <condition_variable>
+
+const std::string CODEPREFIX = "code_";
+
 namespace beast = boost::beast;         // from <boost/beast.hpp>
 namespace http = beast::http;           // from <boost/beast/http.hpp>
 namespace net = boost::asio;            // from <boost/asio.hpp>
@@ -28,5 +31,6 @@ enum ErrorCodes {
 	Success = 0,
 	Error_Json = 1001,
 	RPCFailed = 1002,
+	VerifyCodeError = 1003,
 };
 

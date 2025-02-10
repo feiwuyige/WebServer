@@ -93,7 +93,34 @@ void RegisterDialog::initHttpHandlers()
         showTip(tr("验证码已经发送至邮箱"), true);
         qDebug() << "email is " << email;
     });
+    //注册注册用户回报的逻辑
+    _handlers.insert(ReqId::ID_REG_USER, [this](const QJsonObject& jsonObj){
+        int error = jsonObj["error"].toInt();
+        if(error != ErrorCodes::SUCCESS){
+            showTip(tr("参数错误"), false);
+            return;
+        }
+        auto email = jsonObj["email"].toString();
+        showTip(tr("注册成功"), true);
+        qDebug() << "email is " << email;
+    });
 }
 
 
+
+
+void RegisterDialog::on_RegisterBtn_clicked()
+{
+    //to do 一些错误判断
+    //发送http请求注册用户
+    QJsonObject json_obj;
+    json_obj["user"] = ui->UserEdit->text();
+    json_obj["email"] = ui->EmailEdit->text();
+    json_obj["passwd"] = ui->PassEdit->text();
+    json_obj["confirm"] = ui->YesEdit->text();
+    json_obj["varifycode"] = ui->TestEdit->text();
+    HttpManager::GetInstance()->PostHttpReq(QUrl(gate_url_prefix+"/user_register"), json_obj,
+                                            ReqId::ID_REG_USER,Modules::REGISTERMOD);
+
+}
 

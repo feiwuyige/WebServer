@@ -20,6 +20,8 @@ private slots:
     void on_TestBtn_clicked();
     void slot_reg_mod_finish(ReqId id, QString res, ErrorCodes err);
 
+    void on_RegisterBtn_clicked();
+
 private:
     void showTip(QString str, bool ok);
     Ui::RegisterDialog *ui;
