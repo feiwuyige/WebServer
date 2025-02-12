@@ -11,3 +11,15 @@ GateServer/.vs/
 *.db
 GateServer/GateServer/
 GateServer/x64
+StatusServer/.vs/
+*.vcxproj.user
+*.user
+*.suo
+*.ipch
+*.obj
+*.exe
+*.dll
+*.pdb
+*.db
+StatusServer/x64
+StatusServer/StatusServer/

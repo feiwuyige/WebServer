@@ -1,9 +1,0 @@
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\AsioIOServicePool.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\AsioIOServicePool.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\ConfigMgr.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\ConfigMgr.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\message.grpc.pb.cc;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\message.grpc.pb.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\message.pb.cc;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\message.pb.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\MysqlDao.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\MysqlDao.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\MysqlMgr.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\MysqlMgr.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\RedisMgr.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\RedisMgr.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\StatusServer.obj
-C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServiceImpl.cpp;C:\Users\26259\Desktop\Project\WebServer\StatusServer\StatusServer\x64\Debug\StatusServiceImpl.obj
