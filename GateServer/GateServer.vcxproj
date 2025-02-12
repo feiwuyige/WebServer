@@ -72,8 +72,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\cppsoft\boost\include\boost-1_86;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\cppsoft\boost\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\cppsoft\mysql_connector\include;D:\cppsoft\boost\include\boost-1_86;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\cppsoft\mysql_connector\lib64;D:\cppsoft\boost\lib;D:\cppsoft\mysql_connector\lib64\vs14;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnabled>true</VcpkgEnabled>
@@ -116,7 +116,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>debug\mysqlcppconn.lib;debug\mysqlcppconn8.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\cppsoft\grpc\grpc\visualpro\third_party\cares\cares\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -145,6 +145,8 @@
     <ClCompile Include="LogicSystem.cpp" />
     <ClCompile Include="message.grpc.pb.cc" />
     <ClCompile Include="message.pb.cc" />
+    <ClCompile Include="MysqlDao.cpp" />
+    <ClCompile Include="MysqlMgr.cpp" />
     <ClCompile Include="RedisMgr.cpp" />
     <ClCompile Include="VerifyClient.cpp" />
   </ItemGroup>
@@ -157,6 +159,8 @@
     <ClInclude Include="LogicSystem.h" />
     <ClInclude Include="message.grpc.pb.h" />
     <ClInclude Include="message.pb.h" />
+    <ClInclude Include="MysqlDao.h" />
+    <ClInclude Include="MysqlMgr.h" />
     <ClInclude Include="RedisMgr.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="VerifyClient.h" />

@@ -32,5 +32,18 @@ enum ErrorCodes {
 	Error_Json = 1001,
 	RPCFailed = 1002,
 	VerifyCodeError = 1003,
+	UserExist = 1004,
+	EmailNotMatch = 1005,
+	PasswdUpFailed = 1006,
 };
 
+//∂®“Â defer ¿‡
+class Defer {
+public:
+	Defer(std::function<void()> func) : func_(func){}
+	~Defer() {
+		func_();
+	}
+private:
+	std::function<void()> func_;
+};

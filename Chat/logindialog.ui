@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout_6">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="spacing">
@@ -43,8 +43,8 @@
      <property name="bottomMargin">
       <number>5</number>
      </property>
-     <item>
-      <widget class="QWidget" name="widget" native="true">
+     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+      <widget class="QWidget" name="head_widget" native="true">
        <property name="minimumSize">
         <size>
          <width>300</width>
@@ -57,28 +57,37 @@
          <height>200</height>
         </size>
        </property>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>75</x>
-          <y>30</y>
-          <width>150</width>
-          <height>150</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="res.qrc">:/img/login.jpg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="head_label">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="err_tip">
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </item>
      <item>
@@ -97,7 +106,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="UserLabel">
+        <widget class="QLabel" name="EmailLabel">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -111,12 +120,12 @@
           </size>
          </property>
          <property name="text">
-          <string>用户：</string>
+          <string>邮箱：</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="LineEdit">
+        <widget class="QLineEdit" name="EmailEdit">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -179,6 +188,25 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="ClickedLabel" name="pass_visible">
+         <property name="minimumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
@@ -197,7 +225,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="ForgetLabel">
+        <widget class="ClickedLabel" name="ForgetLabel">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -345,8 +373,13 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <customwidgets>
+  <customwidget>
+   <class>ClickedLabel</class>
+   <extends>QLabel</extends>
+   <header>clickedlabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
  <connections/>
 </ui>

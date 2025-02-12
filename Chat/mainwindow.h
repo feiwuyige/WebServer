@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "logindialog.h"
 #include "registerdialog.h"
+#include "resetdialog.h"
 /**
  * @file  mainwindow.h
  * @brief 主窗口
@@ -32,8 +33,12 @@ private:
     Ui::MainWindow *ui;
     LoginDialog *login_dlg;
     RegisterDialog *register_dlg;
+    ResetDialog *reset_dlg;
 public slots:
     void SlotSwicthRegister();
+    void SlotSwitchLogin();
+    void SlotSwitchReset();
+    void SlotSwtichLogin2();
 
 };
 #endif // MAINWINDOW_H

@@ -35,6 +35,7 @@ signals:
     //发送的信号中的参数最后会传送给槽函数
     void sig_http_finish(ReqId id, QString res, ErrorCodes err, Modules mod);
     void sig_reg_mod_finish(ReqId id, QString res, ErrorCodes err);
+    void sig_reset_mod_finish(ReqId id, QString res, ErrorCodes err);
 };
 
 #endif // HTTPMANAGER_H
