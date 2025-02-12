@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
     login_dlg = new LoginDialog(this);
     login_dlg->setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint);
     setCentralWidget(login_dlg);
-
     //创建和注册消息链接
     connect(login_dlg, &LoginDialog::switchRegister, this, &MainWindow::SlotSwicthRegister);
     //连接忘记密码信号

@@ -28,6 +28,7 @@ void HttpManager::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules 
         }
         //无错误
         QString res = reply->readAll();
+        qDebug() << "HTTP连接发送完成";
         emit self->sig_http_finish(req_id, res, ErrorCodes::SUCCESS, mod);
         reply->deleteLater(); //qt负责回收
         return;
@@ -47,5 +48,8 @@ void HttpManager::slot_http_finish(ReqId id, QString res, ErrorCodes err, Module
     }
     else if(mod == Modules::RESETMOD){
         emit sig_reset_mod_finish(id, res, err);
+    }
+    else if(mod == Modules::LOGINMOD){
+        emit sig_login_mod_finish(id, res, err);
     }
 }

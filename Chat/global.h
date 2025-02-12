@@ -48,6 +48,7 @@ enum ReqId{
 enum Modules{
     REGISTERMOD = 0, //注册模块
     RESETMOD = 1,
+    LOGINMOD = 2,
 };
 /**
  * @brief 错误模块
@@ -73,6 +74,12 @@ enum TipErr{
 enum ClickLbState{
     Normal = 0,
     Select = 1
+};
+struct ServerInfo{
+    QString Host;
+    QString Port;
+    QString Token;
+    int Uid;
 };
 
 extern QString gate_url_prefix;

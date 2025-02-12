@@ -12,6 +12,12 @@ QDialog#LoginDialog, #RegisterDialog{
 #ErrorLabel[state='err']{
     color: red;
 }
+#err_tip[state='normal']{
+    color: green;
+}
+#err_tip[state='err']{
+    color: red;
+}
 #pass_visible[state='unvisible']{
    border-image: url(:/img/unvisible.png);
 }
