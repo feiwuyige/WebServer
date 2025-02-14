@@ -1,0 +1,447 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:CSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:MsgNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:MsgNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.grpc.pb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:message.grpc.pb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\const.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:const.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:CSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:HttpConnection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:LogicSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:CServer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:ConfigMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ChatServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:ChatServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:message.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:CServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:AsioIOServicePool.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:AsioIOServicePool.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:MysqlMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:LogicSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:HttpConnection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlDao.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:MysqlDao.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:RedisMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:RedisMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:ConfigMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:StatusGrpcClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\config.ini||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:config.ini||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:StatusGrpcClient.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.pb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8D2FDF2-0BD1-4EFC-8E83-DD2746B9B1A9}|ChatServer.vcxproj|solutionrelative:message.pb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MsgNode.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.cpp",
+              "RelativeDocumentMoniker": "MsgNode.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.cpp",
+              "RelativeToolTip": "MsgNode.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T14:03:50.513Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MsgNode.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.h",
+              "RelativeDocumentMoniker": "MsgNode.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MsgNode.h",
+              "RelativeToolTip": "MsgNode.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T14:00:08.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CSession.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.cpp",
+              "RelativeDocumentMoniker": "CSession.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.cpp",
+              "RelativeToolTip": "CSession.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T11:55:55.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "const.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\const.h",
+              "RelativeDocumentMoniker": "const.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\const.h",
+              "RelativeToolTip": "const.h",
+              "ViewState": "AgIAABsAAAAAAAAAAADwvzAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T11:28:49.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CSession.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.h",
+              "RelativeDocumentMoniker": "CSession.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CSession.h",
+              "RelativeToolTip": "CSession.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T11:10:06.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChatServer.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ChatServer.cpp",
+              "RelativeDocumentMoniker": "ChatServer.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ChatServer.cpp",
+              "RelativeToolTip": "ChatServer.cpp",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAwA8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:29:21.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CServer.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.h",
+              "RelativeDocumentMoniker": "CServer.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.h",
+              "RelativeToolTip": "CServer.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:41:56.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ConfigMgr.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.h",
+              "RelativeDocumentMoniker": "ConfigMgr.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.h",
+              "RelativeToolTip": "ConfigMgr.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:42:10.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HttpConnection.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.h",
+              "RelativeDocumentMoniker": "HttpConnection.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.h",
+              "RelativeToolTip": "HttpConnection.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:53:43.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "message.grpc.pb.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.grpc.pb.h",
+              "RelativeDocumentMoniker": "message.grpc.pb.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.grpc.pb.h",
+              "RelativeToolTip": "message.grpc.pb.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:41:25.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "message.proto",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.proto",
+              "RelativeDocumentMoniker": "message.proto",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.proto",
+              "RelativeToolTip": "message.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-02-14T11:46:20.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LogicSystem.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.h",
+              "RelativeDocumentMoniker": "LogicSystem.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.h",
+              "RelativeToolTip": "LogicSystem.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:53:42.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AsioIOServicePool.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.cpp",
+              "RelativeDocumentMoniker": "AsioIOServicePool.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.cpp",
+              "RelativeToolTip": "AsioIOServicePool.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T10:56:03.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AsioIOServicePool.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.h",
+              "RelativeDocumentMoniker": "AsioIOServicePool.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\AsioIOServicePool.h",
+              "RelativeToolTip": "AsioIOServicePool.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T10:54:26.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CServer.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.cpp",
+              "RelativeDocumentMoniker": "CServer.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\CServer.cpp",
+              "RelativeToolTip": "CServer.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:42:27.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LogicSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.cpp",
+              "RelativeDocumentMoniker": "LogicSystem.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\LogicSystem.cpp",
+              "RelativeToolTip": "LogicSystem.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:48:09.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MysqlMgr.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlMgr.h",
+              "RelativeDocumentMoniker": "MysqlMgr.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlMgr.h",
+              "RelativeToolTip": "MysqlMgr.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:53:34.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HttpConnection.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.cpp",
+              "RelativeDocumentMoniker": "HttpConnection.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\HttpConnection.cpp",
+              "RelativeToolTip": "HttpConnection.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:49:20.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "RedisMgr.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.cpp",
+              "RelativeDocumentMoniker": "RedisMgr.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.cpp",
+              "RelativeToolTip": "RedisMgr.cpp",
+              "ViewState": "AgIAAFABAAAAAAAAAAAAAG0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:54:17.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MysqlDao.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlDao.cpp",
+              "RelativeDocumentMoniker": "MysqlDao.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\MysqlDao.cpp",
+              "RelativeToolTip": "MysqlDao.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:56:34.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RedisMgr.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.h",
+              "RelativeDocumentMoniker": "RedisMgr.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\RedisMgr.h",
+              "RelativeToolTip": "RedisMgr.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:53:38.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ConfigMgr.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.cpp",
+              "RelativeDocumentMoniker": "ConfigMgr.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\ConfigMgr.cpp",
+              "RelativeToolTip": "ConfigMgr.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:49:08.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StatusGrpcClient.cpp",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.cpp",
+              "RelativeDocumentMoniker": "StatusGrpcClient.cpp",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.cpp",
+              "RelativeToolTip": "StatusGrpcClient.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-14T08:42:22.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "config.ini",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\config.ini",
+              "RelativeDocumentMoniker": "config.ini",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\config.ini",
+              "RelativeToolTip": "config.ini",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002768|",
+              "WhenOpened": "2025-02-14T08:40:39.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "message.pb.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.pb.h",
+              "RelativeDocumentMoniker": "message.pb.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\message.pb.h",
+              "RelativeToolTip": "message.pb.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:42:17.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StatusGrpcClient.h",
+              "DocumentMoniker": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.h",
+              "RelativeDocumentMoniker": "StatusGrpcClient.h",
+              "ToolTip": "C:\\Users\\26259\\Desktop\\Project\\WebServer\\ChatServer\\StatusGrpcClient.h",
+              "RelativeToolTip": "StatusGrpcClient.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-14T08:41:20.977Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -18,14 +18,14 @@ boost::asio::io_context& AsioIOServicePool::GetIOService()
 
 void AsioIOServicePool::Stop()
 {
-	//½ö½öÖ´ĞĞwork.reset²¢²»ÄÜÈÃiocontext´ÓrunµÄ×´Ì¬ÍË³ö
-	//µ± iocontext ÒÑ¾­°ó¶¨ÁË¶Á»òĞ´µÄ¼àÌıÊÂ¼şÒÔºó£¬ĞèÒªÊÖ¶¯ stop ¸Ã·şÎñ
+	//ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½work.resetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iocontextï¿½ï¿½runï¿½ï¿½×´Ì¬ï¿½Ë³ï¿½
+	//ï¿½ï¿½ iocontext ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Ğ´ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ôºï¿½ï¿½ï¿½Òªï¿½Ö¶ï¿½ stop ï¿½Ã·ï¿½ï¿½ï¿½
 	for (auto& work : _works) {
-		//Í£Ö¹·şÎñ
+		//Í£Ö¹ï¿½ï¿½ï¿½ï¿½
 		work->get_io_context().stop();
 		work.reset();
 	}
-	//workÍË³öÒÔºó£¬iocontext.run·¢ÏÖÃ»ÓĞ¶ÁĞ´ÊÂ¼ş¾Í»áÍË³öÖ´ĞĞ
+	//workï¿½Ë³ï¿½ï¿½Ôºï¿½iocontext.runï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ğ¶ï¿½Ğ´ï¿½Â¼ï¿½ï¿½Í»ï¿½ï¿½Ë³ï¿½Ö´ï¿½ï¿½
 	for (auto& t : _threads) {
 		t.join();
 	}
@@ -36,12 +36,11 @@ AsioIOServicePool::AsioIOServicePool(std::size_t size) : _ioServices(size),
 {
 	for (std::size_t i = 0;i < size;++i) {
 		_works[i] = std::unique_ptr<Work>(new Work(_ioServices[i]));
-
-		//±éÀú¶à¸ö ioservice£¬´´½¨¶à¸öÏß³Ì£¬Ã¿¸öÏß³ÌÄÚ²¿Æô¶¯ioservice
-		for (std::size_t i = 0;i < _ioServices.size(); ++i) {
-			_threads.emplace_back([this, i]() {
-				_ioServices[i].run();
-				});
-		}
+	}
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ioserviceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½Ã¿ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ioservice
+	for (std::size_t i = 0;i < _ioServices.size(); ++i) {
+		_threads.emplace_back([this, i]() {
+			_ioServices[i].run();
+			});
 	}
 }

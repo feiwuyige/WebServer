@@ -1,0 +1,74 @@
+﻿  LogicSystem.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(55,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“LogicSystem.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(55,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(61,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“LogicSystem.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(61,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(67,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“LogicSystem.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(67,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(73,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“LogicSystem.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(73,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(79,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“LogicSystem.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(79,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+  message.grpc.pb.cc
+  RedisMgr.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(55,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“RedisMgr.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(55,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(61,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“RedisMgr.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(61,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(67,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“RedisMgr.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(67,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(73,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“RedisMgr.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(73,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(79,10): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+  (编译源文件“RedisMgr.cpp”)
+      D:\cppsoft\vcpkg\vcpkg\installed\x64-windows\include\hiredis\sds.h(79,10):
+      默认构造函数或 copy/move 赋值运算符将忽略此成员
+  
+  StatusGrpcClient.cpp
+  VerifyClient.cpp
+  正在生成代码...
+  ChatServer.vcxproj -> C:\Users\26259\Desktop\Project\WebServer\ChatServer\x64\Debug\ChatServer.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
+  C:\Users\26259\Desktop\Project\WebServer\ChatServer\config.ini
+  复制了 1 个文件
+  C:\Users\26259\Desktop\Project\WebServer\ChatServer\libcrypto-3-x64.dll
+  C:\Users\26259\Desktop\Project\WebServer\ChatServer\libssl-3-x64.dll
+  C:\Users\26259\Desktop\Project\WebServer\ChatServer\mysqlcppconn-9-vs14.dll
+  C:\Users\26259\Desktop\Project\WebServer\ChatServer\mysqlcppconn8-2-vs14.dll
+  复制了 4 个文件
