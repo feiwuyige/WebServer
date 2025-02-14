@@ -23,3 +23,15 @@ StatusServer/.vs/
 *.db
 StatusServer/x64
 StatusServer/StatusServer/
+ChatServer/ChatServer/
+ChatServer/x64
+ChatServer/.vs/
+*.vcxproj.user
+*.user
+*.suo
+*.ipch
+*.obj
+*.exe
+*.dll
+*.pdb
+*.db
