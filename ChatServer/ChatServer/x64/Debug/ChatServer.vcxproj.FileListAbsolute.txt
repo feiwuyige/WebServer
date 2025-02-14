@@ -1,3 +1,0 @@
-C:\Users\26259\Desktop\Project\WebServer\ChatServer\x64\Debug\hiredisd.dll
-C:\Users\26259\Desktop\Project\WebServer\ChatServer\x64\Debug\jsoncpp.dll
-C:\Users\26259\Desktop\Project\WebServer\ChatServer\ChatServer\x64\Debug\ChatServ.5C262225.Up2Date
