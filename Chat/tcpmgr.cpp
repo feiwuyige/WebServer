@@ -2,6 +2,7 @@
 #include <QAbstractSocket>
 #include <QDebug>
 #include <QJsonDocument>
+#include "usermgr.h"
 TcpMgr::~TcpMgr()
 {
 
@@ -90,9 +91,9 @@ void TcpMgr::initHandlers()
             emit sig_login_failed(err);
             return;
         }
-        // UserMgr::GetInstance()->SetUid(jsonObj["uid"].toInt());
-        // UserMgr::GetInstance()->SetName(jsonObj["name"].toString());
-        // UserMgr::GetInstance()->SetToken(jsonObj["token"].toString());
+        UserMgr::GetInstance()->SetUid(jsonObj["uid"].toInt());
+        UserMgr::GetInstance()->SetName(jsonObj["name"].toString());
+        UserMgr::GetInstance()->SetToken(jsonObj["token"].toString());
         emit sig_swich_chatdlg();
     });
 }

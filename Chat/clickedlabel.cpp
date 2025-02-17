@@ -41,17 +41,38 @@ void ClickedLabel::mousePressEvent(QMouseEvent *ev)
     if(ev->button() == Qt::LeftButton){
         if(_curstate == ClickLbState::Normal){
             _curstate = ClickLbState::Select;
-            setProperty("state", _select_hover);
+            setProperty("state", _select_press);
             repolish(this);
             update();
         }
         else{
             _curstate = ClickLbState::Normal;
+            setProperty("state", _normal_press);
+            repolish(this);
+            update();
+        }
+        return;
+    }
+    QLabel::mousePressEvent(ev);
+}
+
+void ClickedLabel::mouseReleaseEvent(QMouseEvent *ev)
+{
+    if(ev->button() == Qt::LeftButton){
+        if(_curstate == ClickLbState::Normal){
+            _curstate = ClickLbState::Select;
             setProperty("state", _normal_hover);
             repolish(this);
             update();
         }
+        else{
+            _curstate = ClickLbState::Normal;
+            setProperty("state", _select_hover);
+            repolish(this);
+            update();
+        }
         emit clicked();
+        return;
     }
     QLabel::mousePressEvent(ev);
 }

@@ -1,6 +1,6 @@
 #include "CServer.h"
-#include "HttpConnection.h"
 #include "AsioIOServicePool.h"
+#include <iostream>
 
 CServer::CServer(boost::asio::io_context& ioc, short portnum) 
 	: _io_context(ioc), _port(portnum), _acceptor(ioc, tcp::endpoint(tcp::v4(), portnum)){
@@ -24,7 +24,7 @@ void CServer::HandleAccept(std::shared_ptr<CSession> new_session, const boost::s
 	if (!error) {
 		new_session->Start();
 		std::lock_guard<std::mutex> lock(_mutex);
-		_sessions.insert(std::make_pair(new_session->GetUuid(), new_session));
+		_sessions.insert(std::make_pair(new_session->GetSessionId(), new_session));
 	}
 	else {
 		std::cout << "session accept failed, error is " << error.what() << std::endl;

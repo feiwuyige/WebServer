@@ -9,6 +9,7 @@ AsioIOServicePool::~AsioIOServicePool()
 
 boost::asio::io_context& AsioIOServicePool::GetIOService()
 {
+	std::cout << "GetIOService" << std::endl;
 	auto& service = _ioServices[_nextIOService++];
 	if (_nextIOService == _ioServices.size()) {
 		_nextIOService = 0;

@@ -45,12 +45,6 @@
     <ClCompile Include="StatusGrpcClient.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="HttpConnection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="VerifyClient.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="RedisMgr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -92,13 +86,7 @@
     <ClInclude Include="StatusGrpcClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="HttpConnection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="const.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="VerifyClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="RedisMgr.h">
@@ -108,6 +96,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MsgNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include <memory>
 #include "const.h"
 #include "MsgNode.h"
+#include "CServer.h"
 
 namespace beast = boost::beast;
 namespace http = beast::http;

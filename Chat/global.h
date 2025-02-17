@@ -81,6 +81,28 @@ struct ServerInfo{
     QString Token;
     int Uid;
 };
+enum ChatUIMode{
+    SearchMode, //搜索模式
+    ChatMode,  //聊天模式
+    ContactMode, //联系模式
+};
+enum ListItemType{
+    CHAT_USER_ITEM,
+    CONTACT_USER_ITEM,
+    SEARCH_USER_ITEM,
+    ADD_USER_TIP_ITEM,
+    INVALID_ITEM,
+    GROUP_TIP_ITEM,
+};
+enum class ChatRole{
+    Self,
+    Other,
+};
+struct MsgInfo{
+    QString msgFlag;
+    QString content;
+    QPixmap pixmap;
+};
 
 extern QString gate_url_prefix;
 #endif // GLOBAL_H

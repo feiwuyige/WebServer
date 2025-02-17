@@ -1,7 +1,12 @@
 #pragma once
-#include "const.h"
+#include <boost/asio.hpp>
 #include "CSession.h"
-class CServer : public std::enable_shared_from_this<CServer>
+#include <memory.h>
+#include <map>
+#include <mutex>
+
+class CSession;
+class CServer 
 {
 public:
 	CServer(boost::asio::io_context& ioc, short portnum);
