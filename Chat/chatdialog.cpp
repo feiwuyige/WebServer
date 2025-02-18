@@ -43,6 +43,27 @@ ChatDialog::ChatDialog(QWidget *parent)
     ShowSearch(false);
     connect(ui->chat_user_list, &ChatUserList::sig_loading_chat_user, this, &ChatDialog::slot_loading_chat_user);
     addChatUserList();
+
+    QPixmap pixmap(":/img/head_1.jpg");
+    QPixmap scaledPixmap = pixmap.scaled(ui->side_head_lb->size(), Qt::KeepAspectRatio);
+    ui->side_head_lb->setPixmap(scaledPixmap);
+    ui->side_head_lb->setScaledContents(true);
+
+    ui->side_chat_lb->setProperty("state", "normal");
+    ui->side_chat_lb->SetState("normal", "hover", "pressed", "selected_normal", "selected_hover", "selected_pressed");
+    ui->side_contact_lb->SetState("normal", "hover", "pressed", "selected_normal", "selected_hover", "selected_pressed");
+
+    AddLBGroup(ui->side_chat_lb);
+    AddLBGroup(ui->side_contact_lb);
+
+    connect(ui->side_chat_lb, &StateWidget::clicked, this, &ChatDialog::slot_side_chat);
+    connect(ui->side_contact_lb, &StateWidget::clicked, this, &ChatDialog::slot_side_contact);
+
+    //连接搜索框输入变化
+    connect(ui->search_edit, &QLineEdit::textChanged, this, &ChatDialog::slot_text_changed);
+
+    //检测鼠标点击位置判断是否要清空搜索框
+    this->installEventFilter(this); //安装事件过滤器
 }
 
 ChatDialog::~ChatDialog()
@@ -90,6 +111,44 @@ void ChatDialog::addChatUserList()
     }
 }
 
+bool ChatDialog::eventFilter(QObject *watched, QEvent *event)
+{
+    if(event->type() == QEvent::MouseButtonPress){
+        QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
+        handleGlobalMouseEvent(mouseEvent);
+    }
+    return QDialog::eventFilter(watched, event);
+}
+
+void ChatDialog::handleGlobalMouseEvent(QMouseEvent *event)
+{
+    if(_mode != ChatUIMode::SearchMode){
+        return;
+    }
+    //将鼠标点击位置转换为搜索列表坐标系中的位置
+    QPoint posInSearchList = ui->search_list->mapFromGlobal(event->globalPosition()).toPoint();
+    //判断点击位置是否在聊天列表的范围内
+    if(!ui->search_list->rect().contains(posInSearchList)){
+        ui->search_edit->clear();
+        ShowSearch(false);
+    }
+}
+
+void ChatDialog::ClearLabelState(StateWidget *lb)
+{
+    for(auto & ele : _lb_list){
+        if(ele == lb){
+            continue;
+        }
+        ele->ClearState();
+    }
+}
+
+void ChatDialog::AddLBGroup(StateWidget *lb)
+{
+    _lb_list.push_back(lb);
+}
+
 void ChatDialog::ShowSearch(bool bsearch)
 {
     if(bsearch){
@@ -107,6 +166,11 @@ void ChatDialog::ShowSearch(bool bsearch)
         ui->search_list->hide();
         ui->con_user_list->show();
         _mode = ChatUIMode::ContactMode;
+    }else if(_state == ChatUIMode::SearchMode){
+        ui->chat_user_list->show();
+        ui->con_user_list->hide();
+        ui->search_list->hide();
+        _mode = ChatUIMode::ChatMode;
     }
 }
 
@@ -138,4 +202,29 @@ void ChatDialog::slot_loading_chat_user()
         ui->chat_user_list->update();
         _b_loading = false;
     });
+}
+
+void ChatDialog::slot_side_chat()
+{
+    qDebug() << "receive side chat clicked";
+    ClearLabelState(ui->side_chat_lb);
+    ui->stackedWidget->setCurrentWidget(ui->chat_page);
+    _state = ChatUIMode::ChatMode;
+    ShowSearch(false);
+}
+
+void ChatDialog::slot_side_contact()
+{
+    qDebug() << "receive side contact clicked";
+    ClearLabelState(ui->side_contact_lb);
+    ui->stackedWidget->setCurrentWidget(ui->friend_apply_page);
+    _state = ChatUIMode::ContactMode;
+    ShowSearch(false);
+}
+
+void ChatDialog::slot_text_changed(const QString &str)
+{
+    if(!str.isEmpty()){
+        ShowSearch(true);
+    }
 }

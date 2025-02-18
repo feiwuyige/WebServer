@@ -5,6 +5,7 @@
 #include "singleton.h"
 #include <functional>
 #include <QObject>
+#include "userdata.h"
 
 class TcpMgr : public QObject, public Singleton<TcpMgr>,
                public std::enable_shared_from_this<TcpMgr>
@@ -33,6 +34,7 @@ signals:
     void sig_send_data(ReqId reqId, QString data);
     void sig_swich_chatdlg();
     void sig_login_failed(int);
+    void sig_user_search(std::shared_ptr<SearchInfo>);
 };
 
 #endif // TCPMGR_H
