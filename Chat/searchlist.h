@@ -47,6 +47,7 @@ private:
     std::shared_ptr<QDialog> _find_dlg;
     QWidget* _search_edit;
     LoadingDlg * _loadingDialog;
+    //QDialog* _find_dlg;
 private slots:
     void slot_item_clicked(QListWidgetItem *item);
     void slot_user_search(std::shared_ptr<SearchInfo> si);

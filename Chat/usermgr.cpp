@@ -23,6 +23,16 @@ void UserMgr::SetToken(QString token)
     _token = token;
 }
 
+QString UserMgr::GetName()
+{
+    return _name;
+}
+
+int UserMgr::GetUid()
+{
+    return _uid;
+}
+
 UserMgr::UserMgr()
 {
 

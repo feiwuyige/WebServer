@@ -93,6 +93,8 @@ enum ListItemType{
     ADD_USER_TIP_ITEM,
     INVALID_ITEM,
     GROUP_TIP_ITEM,
+    APPLY_FRIEND_ITEM,
+    LINE_ITEM
 };
 enum class ChatRole{
     Self,
@@ -103,6 +105,10 @@ struct MsgInfo{
     QString content;
     QPixmap pixmap;
 };
+
+const int MIN_APPLY_LABEL_ED_LEN = 40;
+const QString add_prefix = "添加标签: ";
+const int tip_offset = 5;
 
 extern QString gate_url_prefix;
 #endif // GLOBAL_H

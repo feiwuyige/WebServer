@@ -11,6 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     adduseritem.cpp \
+    applyfriend.cpp \
     bubbleframe.cpp \
     chatdialog.cpp \
     chatitembase.cpp \
@@ -20,8 +21,14 @@ SOURCES += \
     chatview.cpp \
     clickedbtn.cpp \
     clickedlabel.cpp \
+    clickedoncelabel.cpp \
+    contactuserlist.cpp \
+    conuseritem.cpp \
     customizeedit.cpp \
+    findsuccessdlg.cpp \
+    friendlabel.cpp \
     global.cpp \
+    grouptipitem.cpp \
     httpmanager.cpp \
     listitembase.cpp \
     loadingdlg.cpp \
@@ -42,6 +49,7 @@ SOURCES += \
 
 HEADERS += \
     adduseritem.h \
+    applyfriend.h \
     bubbleframe.h \
     chatdialog.h \
     chatitembase.h \
@@ -51,8 +59,14 @@ HEADERS += \
     chatview.h \
     clickedbtn.h \
     clickedlabel.h \
+    clickedoncelabel.h \
+    contactuserlist.h \
+    conuseritem.h \
     customizeedit.h \
+    findsuccessdlg.h \
+    friendlabel.h \
     global.h \
+    grouptipitem.h \
     httpmanager.h \
     listitembase.h \
     loadingdlg.h \
@@ -73,9 +87,14 @@ HEADERS += \
 
 FORMS += \
     adduseritem.ui \
+    applyfriend.ui \
     chatdialog.ui \
     chatpage.ui \
     chatuserwid.ui \
+    conuseritem.ui \
+    findsuccessdlg.ui \
+    friendlabel.ui \
+    grouptipitem.ui \
     loadingdlg.ui \
     logindialog.ui \
     mainwindow.ui \
@@ -102,9 +121,14 @@ win32:CONFIG(debug, debug | release)
     OutputDir =  $${OUT_PWD}/$${DESTDIR}
     OutputDir = $$replace(OutputDir, /, \\)
     # copy
-    QMAKE_POST_LINK += $$QMAKE_COPY_DIR \"$$TargetConfig\" \"$$OutputDir\" > log.txt
+    QMAKE_POST_LINK += $$QMAKE_COPY_DIR \"$$TargetConfig\" \"$$OutputDir\" > log.txt &
     #QMAKE_POST_LINK += cmd /C copy \"$$TargetConfig\" \"$$OutputDir\" > log.txt
     #QMAKE_POST_LINK += cmd /C copy $$shell_path($$TargetConfig) $$shell_path($$OutputDir)
+
+    # # 定义static文件夹路径
+    StaticDir = $${PWD}/static
+    StaticDir = $$replace(StaticDir, /, \\)
+    QMAKE_POST_LINK += $$QMAKE_COPY_DIR \"$$StaticDir\" \"$$OutputDir\\static\" > log.txt
 }
 
 

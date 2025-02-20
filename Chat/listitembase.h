@@ -6,6 +6,7 @@
 
 class ListItemBase: public QWidget
 {
+    Q_OBJECT
 protected:
     virtual void paintEvent(QPaintEvent *event) override;
 public:
