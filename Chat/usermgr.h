@@ -2,6 +2,8 @@
 #define USERMGR_H
 #include <memory>
 #include "singleton.h"
+#include "userdata.h"
+#include <vector>
 
 class UserMgr : public QObject, public Singleton<UserMgr>,
                 public std::enable_shared_from_this<UserMgr>
@@ -15,11 +17,13 @@ public:
     void SetToken(QString token);
     QString GetName();
     int GetUid();
+    std::vector<std::shared_ptr<ApplyInfo>> GetApplyList();
 private:
     UserMgr();
     QString _name;
     QString _token;
     int _uid;
+    std::vector<std::shared_ptr<ApplyInfo> > _apply_list;
 };
 
 #endif // USERMGR_H

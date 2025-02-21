@@ -35,3 +35,15 @@ ChatServer/.vs/
 *.dll
 *.pdb
 *.db
+ChatServer2/ChatServer/
+ChatServer2/x64
+ChatServer2/.vs/
+*.vcxproj.user
+*.user
+*.suo
+*.ipch
+*.obj
+*.exe
+*.dll
+*.pdb
+*.db

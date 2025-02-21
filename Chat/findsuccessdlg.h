@@ -26,7 +26,7 @@ private:
     Ui::FindSuccessDlg *ui;
     std::shared_ptr<SearchInfo> _si;
     QWidget * _parent;
-    std::unique_ptr<ApplyFriend> _apply_friend;
+    //std::unique_ptr<ApplyFriend> _apply_friend;
 
 };
 
