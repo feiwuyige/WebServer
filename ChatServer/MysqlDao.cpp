@@ -256,3 +256,8 @@ bool MysqlDao::CheckPwd(const std::string& name, const std::string& pwd, UserInf
 		return false;
 	}
 }
+
+std::shared_ptr<UserInfo> MysqlDao::GetUser(int uid)
+{
+	return std::shared_ptr<UserInfo>();
+}

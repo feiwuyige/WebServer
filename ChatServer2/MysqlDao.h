@@ -7,6 +7,7 @@
 #include <jdbc/cppconn/resultset.h>
 #include <jdbc/cppconn/statement.h>
 #include <jdbc/cppconn/exception.h>
+#include "data.h"
 
 class SqlConnection {
 public:
@@ -38,12 +39,12 @@ private:
 };
 
 //用户信息
-struct UserInfo {
-	std::string name;
-	std::string pwd;
-	int uid;
-	std::string email;
-};
+//struct UserInfo {
+//	std::string name;
+//	std::string pwd;
+//	int uid;
+//	std::string email;
+//};
 //对数据库直接进行读写的这一层
 class MysqlDao
 {

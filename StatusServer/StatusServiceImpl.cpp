@@ -13,8 +13,7 @@ std::string generate_unique_string() {
 }
 Status StatusServiceImpl::GetChatServer(ServerContext* context, const GetChatServerReq* request, GetChatServerRsp* reply)
 {
-    std::string prefix("chat status server has received :  ");
-    
+    std::string prefix("zyl status server has received :  ");
     const auto& server = getChatServer();
     reply->set_host(server.host);
     reply->set_port(server.port);
@@ -50,14 +49,30 @@ void StatusServiceImpl::insertToken(int uid, std::string token)
     std::string uid_str = std::to_string(uid);
     std::string token_key = USERTOKENPEFIX + uid_str;
     RedisMgr::GetInstance()->Set(token_key, token);
-
 }
 ChatServer StatusServiceImpl::getChatServer()
 {
     std::lock_guard<std::mutex> guard(_server_mtx);
     auto minServer = _servers.begin()->second;
-    //找到连接数量最小的chatserver
-    for (const auto& server : _servers) {
+    auto count_str = RedisMgr::GetInstance()->HGet(LOGIN_COUNT, minServer.name);
+    if (count_str.empty()) {
+        minServer.con_count = INT_MAX;
+    }
+    else {
+        minServer.con_count = std::stoi(count_str);
+    }
+
+    for (auto& server : _servers) {
+        if (server.second.name == minServer.name) {
+            continue;
+        }
+        auto count_str = RedisMgr::GetInstance()->HGet(LOGIN_COUNT, server.second.name);
+        if (count_str.empty()) {
+            server.second.con_count = INT_MAX;
+        }
+        else {
+            server.second.con_count = std::stoi(count_str);
+        }
         if (server.second.con_count < minServer.con_count) {
             minServer = server.second;
         }
@@ -67,15 +82,22 @@ ChatServer StatusServiceImpl::getChatServer()
 StatusServiceImpl::StatusServiceImpl()
 {
     auto& cfg = ConfigMgr::Inst();
-    ChatServer server;
-    server.port = cfg["ChatServer1"]["Port"];
-    server.host = cfg["ChatServer1"]["Host"];
-    server.con_count = 0;
-    server.name = cfg["ChatServer1"]["Name"];
-    _servers[server.name] = server;
-    server.port = cfg["ChatServer2"]["Port"];
-    server.host = cfg["ChatServer2"]["Host"];
-    server.con_count = 0;
-    server.name = cfg["ChatServer2"]["Name"];
-    _servers[server.name] = server;
+    auto server_list = cfg["chatservers"]["Name"];
+    std::vector<std::string> words;
+    std::stringstream ss(server_list);
+    std::string word;
+
+    while (std::getline(ss, word, ',')) {
+        words.push_back(word);
+    }
+    for (auto word : words) {
+        if (cfg[word]["Name"].empty()) {
+            continue;
+        }
+        ChatServer server;
+        server.name = cfg[word]["Name"];
+        server.host = cfg[word]["Host"];
+        server.port = cfg[word]["Port"];
+        _servers[server.name] = server;
+    }
 }
