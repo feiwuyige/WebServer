@@ -205,7 +205,7 @@ LogicSystem::LogicSystem(){
 		return true;
 		});
 	RegPost("/user_login", [](std::shared_ptr<HttpConnection> connection) {
-		//将body转化为str
+		connection->_request.body().data();
 		auto body_str = boost::beast::buffers_to_string(connection->_request.body().data());
 		std::cout << "receive body is " << body_str << std::endl;
 		connection->_response.set(http::field::content_type, "text/json");

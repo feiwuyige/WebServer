@@ -5,6 +5,7 @@
 #include <QScrollBar>
 #include "usermgr.h"
 #include "tcpmgr.h"
+#include <QJsonDocument>
 
 ApplyFriend::ApplyFriend(QWidget *parent) : QDialog(parent), ui(new Ui::ApplyFriend)
 {
@@ -401,6 +402,24 @@ void ApplyFriend::SlotApplyCancel()
 void ApplyFriend::SlotApplySure()
 {
     qDebug()<<"Slot Apply Sure called" ;
+    QJsonObject jsonObj;
+    auto uid = UserMgr::GetInstance()->GetUid();
+    jsonObj["uid"] = uid;
+    auto name = ui->name_ed->text();
+    if(name.isEmpty()){
+        name = ui->name_ed->placeholderText();
+    }
+    jsonObj["applyname"] = name;
+    auto bakname = ui->back_ed->text();
+    if(bakname.isEmpty()){
+        bakname = ui->back_ed->placeholderText();
+    }
+    jsonObj["bakname"] = bakname;
+    jsonObj["touid"] = _si->_uid;
+    QJsonDocument doc(jsonObj);
+    QByteArray jsonData = doc.toJson(QJsonDocument::Compact);
+    //发送tcp请求给 chatserver
+    emit TcpMgr::GetInstance()->sig_send_data(ReqId::ID_ADD_FRIEND_REQ, jsonData);
     this->hide();
     deleteLater();
 }

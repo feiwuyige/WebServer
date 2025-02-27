@@ -4,7 +4,7 @@
 class HttpConnection : public std::enable_shared_from_this<HttpConnection>
 {
 public:
-	friend class LogicSystem;
+	friend class LogicSystem; //将LogicSystem类声明为友元类，所以LogicSystem类中的函数就可以访问该类中的私有成员
 	HttpConnection(boost::asio::io_context& ioc);
 	void Start();
 	tcp::socket& GetSocket() {

@@ -1,8 +1,6 @@
 #include "ChatGrpcClient.h"
 #include "RedisMgr.h"
 #include "ConfigMgr.h"
-#include "UserMgr.h"
-#include "CSession.h"
 #include "MysqlMgr.h"
 
 ChatConPool::ChatConPool(size_t poolSize, std::string host, std::string port) :

@@ -64,6 +64,7 @@ ChatDialog::ChatDialog(QWidget *parent)
 
     //检测鼠标点击位置判断是否要清空搜索框
     this->installEventFilter(this); //安装事件过滤器
+    ui->search_list->SetSearchEdit(ui->search_edit);
 }
 
 ChatDialog::~ChatDialog()

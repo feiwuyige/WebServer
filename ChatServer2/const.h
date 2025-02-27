@@ -19,6 +19,7 @@
 #include <mutex>
 #include <condition_variable>
 
+const std::string USERIPPREFIX = "uip_";
 const std::string CODEPREFIX = "code_";
 const std::string USERTOKENPEFIX = "utoken_";
 const std::string IPCOUNTPEFIX = "ipcount_";

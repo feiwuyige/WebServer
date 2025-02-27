@@ -68,6 +68,7 @@ TcpMgr::TcpMgr() : _host(""), _port(0), _b_recv_pending(false), _message_id(0), 
 
 void TcpMgr::initHandlers()
 {
+    //处理登录请求的回复
     _handlers.insert(ID_CHAT_LOGIN_RSP, [this](ReqId id, int len, QByteArray data){
         Q_UNUSED(len);
         qDebug() << "handle id is " << id << " data is " << data;
@@ -96,6 +97,36 @@ void TcpMgr::initHandlers()
         UserMgr::GetInstance()->SetToken(jsonObj["token"].toString());
         emit sig_swich_chatdlg();
     });
+    //处理搜索请求的回复
+    _handlers.insert(ID_SEARCH_USER_RSP, [this](ReqId id, int len, QByteArray data){
+        Q_UNUSED(len);
+        qDebug() << "handle id is " << id << " data is " << data;
+        // 将QByteArrat 转换为 QJsonDocument
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+        //检查转换是否成功
+        if(jsonDoc.isNull()){
+            qDebug() << "Failed to create QJsonDocument";
+            return;
+        }
+        QJsonObject jsonObj = jsonDoc.object();
+        if(!jsonObj.contains("error")){
+            int err = ErrorCodes::ERR_JSON;
+            qDebug() << "Login Failed, err is Json Parse Err" << err;
+            emit sig_login_failed(err);
+            return;
+        }
+        int err = jsonObj["error"].toInt();
+        if(err != ErrorCodes::SUCCESS){
+            qDebug() << "Login Failed, err is " << err;
+            emit sig_login_failed(err);
+            return;
+        }
+        auto search_info = std::make_shared<SearchInfo>(jsonObj["uid"].toInt(),
+            jsonObj["name"].toString(),jsonObj["nick"].toString(),jsonObj["desc"].toString(),
+                                                        jsonObj["sex"].toInt());
+        emit sig_user_search(search_info);
+    });
+
 }
 
 void TcpMgr::handleMsg(ReqId id, int len, QByteArray data)
@@ -114,14 +145,14 @@ void TcpMgr::slot_tcp_connect(ServerInfo si)
     qDebug() << "connecting to server...";
     _host = si.Host;
     _port = static_cast<uint16_t>(si.Port.toUInt());
+    qDebug() << si.Host << " " << _port;
     _socket.connectToHost(si.Host, _port); //异步连接，此处不会阻塞
 }
 //发送完数据后调用的槽函数
-void TcpMgr::slot_send_data(ReqId reqId, QString data)
+void TcpMgr::slot_send_data(ReqId reqId, QByteArray dataBytes)
 {
     uint16_t id = reqId;
-    QByteArray dataBytes = data.toUtf8();
-    quint16 len = static_cast<quint16>(data.size());
+    quint16 len = static_cast<quint16>(dataBytes.size());
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setByteOrder(QDataStream::BigEndian);
