@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(login_dlg, &LoginDialog::switchReset, this, &MainWindow::SlotSwitchReset);
     //连接聊天界面信号
     connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_swich_chatdlg, this, &MainWindow::SlotSwtichChat);
-    emit TcpMgr::GetInstance().get()->sig_swich_chatdlg();
+    //emit TcpMgr::GetInstance().get()->sig_swich_chatdlg();
 }
 
 MainWindow::~MainWindow()

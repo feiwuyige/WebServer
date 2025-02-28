@@ -15,10 +15,13 @@ public:
 
 class AddFriendApply{
 public:
-    AddFriendApply(int from_uid, QString name, QString desc);
+    AddFriendApply(int from_uid, QString name, QString desc, QString icon, QString nick, int sex);
     int _from_uid;
     QString _name;
     QString _desc;
+    QString _icon;
+    QString _nick;
+    int _sex;
 };
 
 class ApplyInfo{

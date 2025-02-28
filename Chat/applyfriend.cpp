@@ -415,7 +415,8 @@ void ApplyFriend::SlotApplySure()
         bakname = ui->back_ed->placeholderText();
     }
     jsonObj["bakname"] = bakname;
-    jsonObj["touid"] = _si->_uid;
+    jsonObj["touid"] = _si->_uid; //_si存放的是要加对象的uid
+    qDebug() << _si->_uid << " " << _si->_name ;
     QJsonDocument doc(jsonObj);
     QByteArray jsonData = doc.toJson(QJsonDocument::Compact);
     //发送tcp请求给 chatserver
