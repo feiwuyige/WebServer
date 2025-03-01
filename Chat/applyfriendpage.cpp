@@ -3,6 +3,7 @@
 #include <QRandomGenerator>
 #include "tcpmgr.h"
 #include "usermgr.h"
+#include "authenfriend.h"
 
 ApplyFriendPage::ApplyFriendPage(QWidget *parent) :
     QWidget(parent),
@@ -43,10 +44,10 @@ void ApplyFriendPage::AddNewApply(std::shared_ptr<AddFriendApply> apply)
     apply_item->ShowAddBtn(true);
     //收到审核好友信号
     connect(apply_item, &ApplyFriendItem::sig_auth_friend, [this](std::shared_ptr<ApplyInfo> apply_info) {
-        //        auto* authFriend = new AuthenFriend(this);
-        //        authFriend->setModal(true);
-        //        authFriend->SetApplyInfo(apply_info);
-        //        authFriend->show();
+               auto* authFriend = new AuthenFriend(this);
+               authFriend->setModal(true);
+               authFriend->SetApplyInfo(apply_info);
+               authFriend->show();
     });
 }
 void ApplyFriendPage::paintEvent(QPaintEvent *event)
@@ -103,10 +104,10 @@ void ApplyFriendPage::loadApplyList()
         }
         //收到审核好友信号
         connect(apply_item, &ApplyFriendItem::sig_auth_friend, [this](std::shared_ptr<ApplyInfo> apply_info) {
-            //            auto* authFriend = new AuthenFriend(this);
-            //            authFriend->setModal(true);
-            //            authFriend->SetApplyInfo(apply_info);
-            //            authFriend->show();
+                       auto* authFriend = new AuthenFriend(this);
+                       authFriend->setModal(true);
+                       authFriend->SetApplyInfo(apply_info);
+                       authFriend->show();
         });
     }
     // 模拟假数据，创建QListWidgetItem，并设置自定义的widget
@@ -128,10 +129,10 @@ void ApplyFriendPage::loadApplyList()
         ui->apply_friend_list->setItemWidget(item, apply_item);
         //收到审核好友信号
         connect(apply_item, &ApplyFriendItem::sig_auth_friend, [this](std::shared_ptr<ApplyInfo> apply_info){
-            //            auto *authFriend =  new AuthenFriend(this);
-            //            authFriend->setModal(true);
-            //            authFriend->SetApplyInfo(apply_info);
-            //            authFriend->show();
+                       auto *authFriend =  new AuthenFriend(this);
+                       authFriend->setModal(true);
+                       authFriend->SetApplyInfo(apply_info);
+                       authFriend->show();
         });
     }
 }

@@ -2,6 +2,8 @@
 #include "tcpmgr.h"
 #include <QRandomGenerator>
 #include <QScrollBar>
+#include "userdata.h"
+#include "usermgr.h"
 
 ContactUserList::ContactUserList(QWidget *parent)
 {
@@ -15,9 +17,9 @@ ContactUserList::ContactUserList(QWidget *parent)
     addContactUserList();
 
     connect(this, &QListWidget::itemClicked, this, &ContactUserList::slot_item_clicked);
-    // connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_add_auth_friend, this,
-    //         &ContactUserList::slot_add_auth_friend);
-    // connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_auth_rsp, this, &ContactUserList::slot_auth_rsp);
+    connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_add_auth_friend, this,
+            &ContactUserList::slot_add_auth_friend);
+    connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_auth_rsp, this, &ContactUserList::slot_auth_rsp);
 }
 
 void ContactUserList::ShowRedPoint(bool bshow)
@@ -163,5 +165,75 @@ void ContactUserList::slot_item_clicked(QListWidgetItem *item)
         emit sig_switch_friend_info_page();
         return;
     }
+}
+
+void ContactUserList::slot_add_auth_friend(std::shared_ptr<AuthInfo> auth_info)
+{
+    qDebug() << "slot add auth friend";
+    bool isFriend = UserMgr::GetInstance()->CheckFriendById(auth_info->_uid);
+    if(isFriend){
+        return;
+    }
+    // 在 groupitem 之后插入新项
+    std::vector<QString>  strs ={"hello world !",
+                                 "nice to meet u",
+                                 "New year，new life",
+                                 "You have to love yourself",
+                                 "My love is written in the wind ever since the whole world is you"};
+    std::vector<QString> heads = {
+        ":/img/head_1.jpg",
+        ":/img/head_2.jpg",
+        ":/img/head_3.jpg",
+        ":/img/head_4.jpg",
+        ":/img/head_5.jpg"
+    };
+    int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+    int str_i = randomValue % strs.size();
+    int head_i = randomValue % heads.size();
+
+    auto *con_user_wid = new ConUserItem();
+    con_user_wid->SetInfo(auth_info);
+    QListWidgetItem *item = new QListWidgetItem;
+    item->setSizeHint(con_user_wid->sizeHint());
+    //获取 groupitem 的索引
+    int index = this->row(_groupitem);
+    //在 groupitem 后面插入新项
+    this->insertItem(index + 1, item);
+    this->setItemWidget(item, con_user_wid);
+}
+
+void ContactUserList::slot_auth_rsp(std::shared_ptr<AuthRsp> auth_rsp)
+{
+    qDebug() << "slot auth rsp called";
+    bool isFriend = UserMgr::GetInstance()->CheckFriendById(auth_rsp->_uid);
+    if(isFriend){
+        return;
+    }
+    // 在 groupitem 之后插入新项
+    std::vector<QString>  strs ={"hello world !",
+                                 "nice to meet u",
+                                 "New year，new life",
+                                 "You have to love yourself",
+                                 "My love is written in the wind ever since the whole world is you"};
+    std::vector<QString> heads = {
+        ":/img/head_1.jpg",
+        ":/img/head_2.jpg",
+        ":/img/head_3.jpg",
+        ":/img/head_4.jpg",
+        ":/img/head_5.jpg"
+    };
+    int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+    int str_i = randomValue % strs.size();
+    int head_i = randomValue % heads.size();
+
+    auto *con_user_wid = new ConUserItem();
+    con_user_wid->SetInfo(auth_rsp->_uid, auth_rsp->_name, auth_rsp->_icon);
+    QListWidgetItem *item = new QListWidgetItem;
+    item->setSizeHint(con_user_wid->sizeHint());
+    //获取 groupitem 的索引
+    int index = this->row(_groupitem);
+    //在 groupitem 后面插入新项
+    this->insertItem(index + 1, item);
+    this->setItemWidget(item, con_user_wid);
 }
 

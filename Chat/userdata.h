@@ -27,6 +27,7 @@ public:
 class ApplyInfo{
 public:
     ApplyInfo(int uid, QString name, QString desc, QString icon, QString nick, int sex, int status);
+    ApplyInfo(std::shared_ptr<AddFriendApply> addinfo);
     void SetIcon(QString head);
     int _uid;
     QString _name;
@@ -55,7 +56,7 @@ struct AuthRsp{
     int _sex;
 };
 struct UserInfo{
-    UserInfo(int uid, QString name, QString nick, QString icon, int sex);
+    UserInfo(int uid, QString name, QString nick, QString icon, int sex, QString last_msg = "");
     UserInfo(std::shared_ptr<AuthInfo> auth);
     UserInfo(int uid, QString name, QString icon);
     UserInfo(std::shared_ptr<AuthRsp> auth);
@@ -64,6 +65,21 @@ struct UserInfo{
     QString _nick;
     QString _icon;
     int _sex;
+    QString _last_msg;
+};
+struct FriendInfo{
+    FriendInfo(int uid, QString name, QString nick, QString icon, int sex, QString desc, QString back, QString last_msg = "");
+    FriendInfo(std::shared_ptr<AuthInfo> auth_info);
+    FriendInfo(std::shared_ptr<AuthRsp> auth_rsp);
+    int _uid;
+    QString _name;
+    QString _nick;
+    QString _icon;
+    int _sex;
+    QString _desc;
+    QString _back;
+    QString _last_msg;
+    //std::vector<std::shared_ptr<TextChatData> > _chat_msgs;
 };
 
 #endif // USERDATA_H
