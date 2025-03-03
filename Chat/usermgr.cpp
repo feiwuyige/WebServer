@@ -73,6 +73,23 @@ void UserMgr::AppendApplyList(QJsonArray array)
     }
 }
 
+void UserMgr::AppendFriendList(QJsonArray array)
+{
+    for(const QJsonValue &value : array){
+        auto name = value["name"].toString();
+        auto desc = value["desc"].toString();
+        auto icon = value["icon"].toString();
+        auto nick = value["nick"].toString();
+        auto sex = value["sex"].toInt();
+        auto uid = value["uid"].toInt();
+        auto back = value["back"].toString();
+        QString last_msg = "";
+        auto info = std::make_shared<FriendInfo>(uid, name, nick, icon, sex, desc, back, last_msg);
+        _friend_list.push_back(info);
+        _friend_map.insert(uid, info);
+    }
+}
+
 bool UserMgr::CheckFriendById(int uid)
 {
     auto iter = _friend_map.find(uid);
@@ -103,8 +120,100 @@ std::shared_ptr<FriendInfo> UserMgr::GetFriendById(int uid)
     return (*iter);
 }
 
+std::vector<std::shared_ptr<FriendInfo> > UserMgr::GetChatListPerPage()
+{
+    std::vector<std::shared_ptr<FriendInfo>> friend_list;
+    size_t begin = _chat_loaded;
+    size_t end = begin + CHAT_COUNT_PER_PAGE;
+    if(begin >= _friend_list.size()){
+        return friend_list;
+    }
+    if(end > _friend_list.size()){
+        friend_list = std::vector<std::shared_ptr<FriendInfo>>(_friend_list.begin()+begin, _friend_list.end());
+        return friend_list;
+    }
+    friend_list = std::vector<std::shared_ptr<FriendInfo>>(_friend_list.begin()+begin, _friend_list.begin()+end);
+    return friend_list;
+}
 
-UserMgr::UserMgr()
+bool UserMgr::IsLoadChatFin()
+{
+    if(_chat_loaded >= _friend_list.size()){
+        return true;
+    }
+    return false;
+}
+
+void UserMgr::UpdateChatLoadedCount()
+{
+    size_t begin = _chat_loaded;
+    size_t end = begin + CHAT_COUNT_PER_PAGE;
+    if(begin >= _friend_list.size()){
+        return;
+    }
+    if(end > _friend_list.size()){
+        _chat_loaded = _friend_list.size();
+        return;
+    }
+    _chat_loaded = end;
+    return;
+}
+
+std::vector<std::shared_ptr<FriendInfo> > UserMgr::GetConListPrePage()
+{
+    std::vector<std::shared_ptr<FriendInfo>> friend_list;
+    size_t begin = _con_loaded;
+    size_t end = begin + CHAT_COUNT_PER_PAGE;
+    if(begin >= _friend_list.size()){
+        return friend_list;
+    }
+    if(end > _friend_list.size()){
+        friend_list = std::vector<std::shared_ptr<FriendInfo>>(_friend_list.begin()+begin, _friend_list.end());
+        return friend_list;
+    }
+    friend_list = std::vector<std::shared_ptr<FriendInfo>>(_friend_list.begin()+begin, _friend_list.begin()+end);
+    return friend_list;
+}
+
+void UserMgr::UpdateContactLoadedCount()
+{
+    size_t begin = _con_loaded;
+    size_t end = begin + CHAT_COUNT_PER_PAGE;
+    if(begin >= _friend_list.size()){
+        return;
+    }
+    if(end > _friend_list.size()){
+        _con_loaded = _friend_list.size();
+        return;
+    }
+    _con_loaded = end;
+    return;
+}
+
+bool UserMgr::IsLoadConFin()
+{
+    if(_con_loaded >= _friend_list.size()){
+        return true;
+    }
+    return false;
+}
+
+std::shared_ptr<UserInfo> UserMgr::GetUserInfo()
+{
+    return _user_info;
+}
+
+void UserMgr::AppendFriendChatMsg(int friend_id, std::vector<std::shared_ptr<TextChatData> > msgs)
+{
+    auto find_iter = _friend_map.find(friend_id);
+    if(find_iter == _friend_map.end()){
+        return;
+    }
+    find_iter.value()->AppendChatMsgs(msgs);
+}
+
+
+UserMgr::UserMgr() : _user_info(nullptr), _chat_loaded(0), _con_loaded(0)
 {
 
 }

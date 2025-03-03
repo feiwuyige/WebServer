@@ -1,7 +1,8 @@
 #include "userdata.h"
+#include <QJsonObject>
 
-SearchInfo::SearchInfo(int uid, QString name, QString nick, QString desc, int sex):
-    _uid(uid),_name(name), _nick(nick), _desc(desc), _sex(sex){
+SearchInfo::SearchInfo(int uid, QString name, QString nick, QString desc, QString icon, int sex):
+    _uid(uid),_name(name), _nick(nick), _desc(desc),_icon(icon), _sex(sex){
 
 }
 
@@ -67,6 +68,20 @@ UserInfo::UserInfo(std::shared_ptr<AuthRsp> auth):
 
 }
 
+UserInfo::UserInfo(std::shared_ptr<SearchInfo> si) :
+    _uid(si->_uid), _name(si->_name), _nick(si->_nick),
+    _icon(si->_icon), _sex(si->_sex), _last_msg("")
+{
+
+}
+
+UserInfo::UserInfo(std::shared_ptr<FriendInfo> fi):
+    _uid(fi->_uid), _name(fi->_name), _nick(fi->_nick),
+    _icon(fi->_icon), _sex(fi->_sex), _last_msg(fi->_last_msg)
+{
+    _chat_msgs = fi->_chat_msgs;
+}
+
 FriendInfo::FriendInfo(int uid, QString name, QString nick, QString icon, int sex, QString desc, QString back, QString last_msg)
     : _uid(uid), _name(name), _nick(nick), _icon(icon), _sex(sex), _desc(desc), _back(back), _last_msg(last_msg)
 {
@@ -83,4 +98,29 @@ FriendInfo::FriendInfo(std::shared_ptr<AuthRsp> auth_rsp)
     : _uid(auth_rsp->_uid), _name(auth_rsp->_name), _nick(auth_rsp->_nick), _icon(auth_rsp->_icon), _sex(auth_rsp->_sex)
 {
 
+}
+
+void FriendInfo::AppendChatMsgs(const std::vector<std::shared_ptr<TextChatData> > text_vec)
+{
+    for(const auto & text : text_vec){
+        _chat_msgs.push_back(text);
+    }
+}
+
+TextChatData::TextChatData(QString msg_id, QString msg_content, int from_uid, int to_uid):
+    _msg_id(msg_id), _msg_content(msg_content), _from_uid(from_uid), _to_uid(to_uid)
+{
+}
+
+TextChatMsg::TextChatMsg(int fromuid, int touid, QJsonArray array) :
+    _from_uid(fromuid), _to_uid(touid)
+{
+    for(auto msg_data : array){
+        auto msg_obj = msg_data.toObject();
+        auto content = msg_obj["content"].toString();
+        auto msgid = msg_obj["msgid"].toString();
+        auto msg_ptr = std::make_shared<TextChatData>(msgid, content, fromuid, touid);
+        _chat_msgs.push_back(msg_ptr);
+
+    }
 }

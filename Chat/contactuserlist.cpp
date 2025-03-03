@@ -94,42 +94,55 @@ void ContactUserList::addContactUserList()
     this->addItem(_groupitem);
     this->setItemWidget(_groupitem, groupCon);
     _groupitem->setFlags(_groupitem->flags() & ~Qt::ItemIsSelectable);
-    // 创建QListWidgetItem，并设置自定义的widget
-    std::vector<QString>  strs ={"hello world !",
-                                 "nice to meet u",
-                                 "New year，new life",
-                                 "You have to love yourself",
-                                 "My love is written in the wind ever since the whole world is you"};
-    std::vector<QString> heads = {
-        ":/img/head_1.jpg",
-        ":/img/head_2.jpg",
-        ":/img/head_3.jpg",
-        ":/img/head_4.jpg",
-        ":/img/head_5.jpg"
-    };
-    std::vector<QString> names = {
-        "llfc",
-        "zack",
-        "golang",
-        "cpp",
-        "java",
-        "nodejs",
-        "python",
-        "rust"
-    };
-    for(int i = 0; i < 13; i++){
-        int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-        int str_i = randomValue % strs.size();
-        int head_i = randomValue % heads.size();
-        int name_i = randomValue % names.size();
+
+    //加载
+    auto con_list = UserMgr::GetInstance()->GetConListPrePage();
+    for(auto& con_ele : con_list){
         auto *con_user_wid = new ConUserItem();
-        con_user_wid->SetInfo(0,names[name_i], heads[head_i]);
+        con_user_wid->SetInfo(con_ele->_uid, con_ele->_name, con_ele->_icon);
         QListWidgetItem *item = new QListWidgetItem;
         //qDebug()<<"chat_user_wid sizeHint is " << chat_user_wid->sizeHint();
         item->setSizeHint(con_user_wid->sizeHint());
         this->addItem(item);
         this->setItemWidget(item, con_user_wid);
     }
+    UserMgr::GetInstance()->UpdateContactLoadedCount();
+    // 创建QListWidgetItem，并设置自定义的widget
+    // std::vector<QString>  strs ={"hello world !",
+    //                              "nice to meet u",
+    //                              "New year，new life",
+    //                              "You have to love yourself",
+    //                              "My love is written in the wind ever since the whole world is you"};
+    // std::vector<QString> heads = {
+    //     ":/img/head_1.jpg",
+    //     ":/img/head_2.jpg",
+    //     ":/img/head_3.jpg",
+    //     ":/img/head_4.jpg",
+    //     ":/img/head_5.jpg"
+    // };
+    // std::vector<QString> names = {
+    //     "llfc",
+    //     "zack",
+    //     "golang",
+    //     "cpp",
+    //     "java",
+    //     "nodejs",
+    //     "python",
+    //     "rust"
+    // };
+    // for(int i = 0; i < 13; i++){
+    //     int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+    //     int str_i = randomValue % strs.size();
+    //     int head_i = randomValue % heads.size();
+    //     int name_i = randomValue % names.size();
+    //     auto *con_user_wid = new ConUserItem();
+    //     con_user_wid->SetInfo(0,names[name_i], heads[head_i]);
+    //     QListWidgetItem *item = new QListWidgetItem;
+    //     //qDebug()<<"chat_user_wid sizeHint is " << chat_user_wid->sizeHint();
+    //     item->setSizeHint(con_user_wid->sizeHint());
+    //     this->addItem(item);
+    //     this->setItemWidget(item, con_user_wid);
+    // }
 }
 
 void ContactUserList::slot_item_clicked(QListWidgetItem *item)
@@ -162,7 +175,9 @@ void ContactUserList::slot_item_clicked(QListWidgetItem *item)
         // 创建对话框，提示用户
         qDebug()<< "contact user item clicked ";
         //跳转到好友申请界面
-        emit sig_switch_friend_info_page();
+        auto con_item = qobject_cast<ConUserItem*>(customItem);
+        auto user_info = con_item->GetInfo();
+        emit sig_switch_friend_info_page(user_info);
         return;
     }
 }
@@ -175,21 +190,21 @@ void ContactUserList::slot_add_auth_friend(std::shared_ptr<AuthInfo> auth_info)
         return;
     }
     // 在 groupitem 之后插入新项
-    std::vector<QString>  strs ={"hello world !",
-                                 "nice to meet u",
-                                 "New year，new life",
-                                 "You have to love yourself",
-                                 "My love is written in the wind ever since the whole world is you"};
-    std::vector<QString> heads = {
-        ":/img/head_1.jpg",
-        ":/img/head_2.jpg",
-        ":/img/head_3.jpg",
-        ":/img/head_4.jpg",
-        ":/img/head_5.jpg"
-    };
-    int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    int str_i = randomValue % strs.size();
-    int head_i = randomValue % heads.size();
+    // std::vector<QString>  strs ={"hello world !",
+    //                              "nice to meet u",
+    //                              "New year，new life",
+    //                              "You have to love yourself",
+    //                              "My love is written in the wind ever since the whole world is you"};
+    // std::vector<QString> heads = {
+    //     ":/img/head_1.jpg",
+    //     ":/img/head_2.jpg",
+    //     ":/img/head_3.jpg",
+    //     ":/img/head_4.jpg",
+    //     ":/img/head_5.jpg"
+    // };
+    // int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+    // int str_i = randomValue % strs.size();
+    // int head_i = randomValue % heads.size();
 
     auto *con_user_wid = new ConUserItem();
     con_user_wid->SetInfo(auth_info);
@@ -210,21 +225,21 @@ void ContactUserList::slot_auth_rsp(std::shared_ptr<AuthRsp> auth_rsp)
         return;
     }
     // 在 groupitem 之后插入新项
-    std::vector<QString>  strs ={"hello world !",
-                                 "nice to meet u",
-                                 "New year，new life",
-                                 "You have to love yourself",
-                                 "My love is written in the wind ever since the whole world is you"};
-    std::vector<QString> heads = {
-        ":/img/head_1.jpg",
-        ":/img/head_2.jpg",
-        ":/img/head_3.jpg",
-        ":/img/head_4.jpg",
-        ":/img/head_5.jpg"
-    };
-    int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    int str_i = randomValue % strs.size();
-    int head_i = randomValue % heads.size();
+    // std::vector<QString>  strs ={"hello world !",
+    //                              "nice to meet u",
+    //                              "New year，new life",
+    //                              "You have to love yourself",
+    //                              "My love is written in the wind ever since the whole world is you"};
+    // std::vector<QString> heads = {
+    //     ":/img/head_1.jpg",
+    //     ":/img/head_2.jpg",
+    //     ":/img/head_3.jpg",
+    //     ":/img/head_4.jpg",
+    //     ":/img/head_5.jpg"
+    // };
+    // int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+    // int str_i = randomValue % strs.size();
+    // int head_i = randomValue % heads.size();
 
     auto *con_user_wid = new ConUserItem();
     con_user_wid->SetInfo(auth_rsp->_uid, auth_rsp->_name, auth_rsp->_icon);

@@ -102,8 +102,13 @@ void TcpMgr::initHandlers()
         auto user_info = std::make_shared<UserInfo>(uid, name, nick, icon, sex);
         UserMgr::GetInstance()->SetUserInfo(user_info);
         UserMgr::GetInstance()->SetToken(jsonObj["token"].toString());
+        //加载申请列表
         if(jsonObj.contains("apply_list")){
             UserMgr::GetInstance()->AppendApplyList(jsonObj["apply_list"].toArray());
+        }
+        //加载好友列表
+        if(jsonObj.contains("friend_list")){
+            UserMgr::GetInstance()->AppendFriendList(jsonObj["friend_list"].toArray());
         }
         emit sig_swich_chatdlg();
     });
@@ -132,7 +137,10 @@ void TcpMgr::initHandlers()
             return;
         }
         auto search_info = std::make_shared<SearchInfo>(jsonObj["uid"].toInt(),
-            jsonObj["name"].toString(),jsonObj["nick"].toString(),jsonObj["desc"].toString(),
+                                                        jsonObj["name"].toString(),
+                                                        jsonObj["nick"].toString(),
+                                                        jsonObj["desc"].toString(),
+                                                        jsonObj["icon"].toString(),
                                                         jsonObj["sex"].toInt());
         emit sig_user_search(search_info);
     });
@@ -214,7 +222,7 @@ void TcpMgr::initHandlers()
         int sex = jsonObj["sex"].toInt();
         auto auth_info = std::make_shared<AuthInfo>(from_uid, name, nick, icon, sex);
         emit sig_add_auth_friend(auth_info);
-        qDebug() << "ID_NOTIFY_AUTH_FRIEND_REQ friend success";
+        qDebug() << "ID_NOTIFY_AUTH_FRIEND_REQ friend success, form_uid " << from_uid;
     });
     _handlers.insert(ID_AUTH_FRIEND_RSP, [this](ReqId id, int len, QByteArray data){
         Q_UNUSED(len);
@@ -240,6 +248,57 @@ void TcpMgr::initHandlers()
         auto rsp = std::make_shared<AuthRsp>(uid, name, nick, icon, sex);
         emit sig_auth_rsp(rsp);
         qDebug() << "ID_AUTH_FRIEND_RSP friend success";
+    });
+    _handlers.insert(ID_TEXT_CHAT_MSG_RSP, [this](ReqId id, int len, QByteArray data){
+        Q_UNUSED(len);
+        qDebug() << "handle id is " << id << " data is " << data;
+        // 将QByteArrat 转换为 QJsonDocument
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+        //检查转换是否成功
+        if(jsonDoc.isNull()){
+            qDebug() << "发送消息成功 Failed to create QJsonDocument";
+            return;
+        }
+        QJsonObject jsonObj = jsonDoc.object();
+        if(!jsonObj.contains("error")){
+            int err = ErrorCodes::ERR_JSON;
+            qDebug() << "发送消息成功 Failed, err is Json Parse Err" << err;
+            return;
+        }
+        int err = jsonObj["error"].toInt();
+        if(err != ErrorCodes::SUCCESS){
+            qDebug() << "发送消息成功 Failed, err is " << err;
+            return;
+        }
+        qDebug() << "发送消息成功 " << err;
+    });
+    _handlers.insert(ID_NOTIFY_TEXT_CHAT_MSG_REQ, [this](ReqId id, int len, QByteArray data){
+        Q_UNUSED(len);
+        qDebug() << "handle id is " << id << " data is " << data;
+        // 将QByteArrat 转换为 QJsonDocument
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+        //检查转换是否成功
+        if(jsonDoc.isNull()){
+            qDebug() << "收到消息成功 Failed to create QJsonDocument";
+            return;
+        }
+        QJsonObject jsonObj = jsonDoc.object();
+        if(!jsonObj.contains("error")){
+            int err = ErrorCodes::ERR_JSON;
+            qDebug() << "收到消息成功 Failed, err is Json Parse Err" << err;
+            return;
+        }
+        int err = jsonObj["error"].toInt();
+        if(err != ErrorCodes::SUCCESS){
+            qDebug() << "收到消息成功 Failed, err is " << err;
+            return;
+        }
+        qDebug() << "收到消息成功 " << err;
+        auto msg_ptr = std::make_shared<TextChatMsg>(jsonObj["fromuid"].toInt(),
+                                                     jsonObj["touid"].toInt(),
+                                                     jsonObj["text_array"].toArray());
+        emit sig_text_chat_msg(msg_ptr);
+
     });
 }
 

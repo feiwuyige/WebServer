@@ -5,6 +5,7 @@
 #include "findsuccessdlg.h"
 #include "findfaildlg.h"
 #include <QJsonDocument>
+#include "usermgr.h"
 
 SearchList::SearchList(QWidget *parent)
     :QListWidget(parent), _send_pending(false),_find_dlg(nullptr), _search_edit(nullptr)
@@ -116,7 +117,18 @@ void SearchList::slot_user_search(std::shared_ptr<SearchInfo> si)
         _find_dlg = std::make_shared<FindFailDlg>(this);
     }
     else{
-        //已经是好友， to do
+        //如果搜的是自己，先返回
+        auto self_uid = UserMgr::GetInstance()->GetUid();
+        if(si->_uid == self_uid){
+            return;
+        }
+        //已经是好友，
+        bool bExist = UserMgr::GetInstance()->CheckFriendById(si->_uid);
+        if(bExist){
+            //已经是好友了，跳转到聊天页面
+            emit sig_jump_chat_item(si);
+            return;
+        }
         //还不是好友
         _find_dlg = std::make_shared<FindSuccessDlg>(this);
         std::dynamic_pointer_cast<FindSuccessDlg>(_find_dlg)->SetSearchInfo(si);
