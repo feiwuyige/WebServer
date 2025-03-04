@@ -58,8 +58,12 @@ void ChatPage::AppendChatMsg(std::shared_ptr<TextChatData> msg)
     else{
         role = ChatRole::Other;
         ChatItemBase* pChatItem = new ChatItemBase(role);
-        pChatItem->setUserName(self_info->_name);
-        pChatItem->setUserIcon(QPixmap(self_info->_icon));
+        auto friend_info = UserMgr::GetInstance()->GetFriendById(msg->_from_uid);
+        if (friend_info == nullptr) {
+            return;
+        }
+        pChatItem->setUserName(friend_info->_name);
+        pChatItem->setUserIcon(QPixmap(friend_info->_icon));
         QWidget* pBubble = nullptr;
         pBubble = new TextBubble(role, msg->_msg_content);
         pChatItem->setWidget(pBubble);

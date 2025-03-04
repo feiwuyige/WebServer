@@ -125,43 +125,6 @@ void ChatDialog::addChatUserList()
             _chat_items_added.insert(friend_ele->_uid, item);
         }
     }
-    // std::vector<QString>  strs ={"hello world !",
-    //                              "nice to meet u",
-    //                              "New year，new life",
-    //                              "You have to love yourself",
-    //                              "My love is written in the wind ever since the whole world is you"};
-    // std::vector<QString> heads = {
-    //     ":/img/head_1.jpg",
-    //     ":/img/head_2.jpg",
-    //     ":/img/head_3.jpg",
-    //     ":/img/head_4.jpg",
-    //     ":/img/head_5.jpg"
-    // };
-    // std::vector<QString> names = {
-    //     "llfc",
-    //     "zack",
-    //     "golang",
-    //     "cpp",
-    //     "java",
-    //     "nodejs",
-    //     "python",
-    //     "rust"
-    // };
-    // // 创建QListWidgetItem，并设置自定义的widget
-    // for(int i = 0; i < 13; i++){
-    //     int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    //     int str_i = randomValue%strs.size();
-    //     int head_i = randomValue%heads.size();
-    //     int name_i = randomValue%names.size();
-    //     auto *chat_user_wid = new ChatUserWid();
-    //     auto user_info = std::make_shared<UserInfo>(0, names[name_i], names[name_i], heads[head_i],0, strs[str_i]);
-    //     chat_user_wid->SetInfo(user_info);
-    //     QListWidgetItem *item = new QListWidgetItem;
-    //     //qDebug()<<"chat_user_wid sizeHint is " << chat_user_wid->sizeHint();
-    //     item->setSizeHint(chat_user_wid->sizeHint());
-    //     ui->chat_user_list->addItem(item);
-    //     ui->chat_user_list->setItemWidget(item, chat_user_wid);
-    // }
 }
 
 void ChatDialog::loadMoreChatUser()
@@ -230,6 +193,16 @@ void ChatDialog::SetSelectChatItem(int uid)
         _cur_chat_uid = con_item->GetUserInfo()->_uid;
         return;
     }
+    auto find_iter = _chat_items_added.find(uid);
+    if(find_iter == _chat_items_added.end()){
+        qDebug() << "uid " <<uid<< " not found, set curent row 0";
+        ui->chat_user_list->setCurrentRow(0);
+        return;
+    }
+
+    ui->chat_user_list->setCurrentItem(find_iter.value());
+
+    _cur_chat_uid = uid;
 }
 
 void ChatDialog::SetSelectChatPage(int uid)
@@ -460,22 +433,6 @@ void ChatDialog::slot_add_auth_friend(std::shared_ptr<AuthInfo> auth_info)
     if(isFriend){
         return;
     }
-    // 在 groupitem 之后插入新项
-    // std::vector<QString>  strs ={"hello world !",
-    //                              "nice to meet u",
-    //                              "New year，new life",
-    //                              "You have to love yourself",
-    //                              "My love is written in the wind ever since the whole world is you"};
-    // std::vector<QString> heads = {
-    //     ":/img/head_1.jpg",
-    //     ":/img/head_2.jpg",
-    //     ":/img/head_3.jpg",
-    //     ":/img/head_4.jpg",
-    //     ":/img/head_5.jpg"
-    // };
-    // int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    // int str_i = randomValue % strs.size();
-    // int head_i = randomValue % heads.size();
 
     auto *chat_user_wid = new ChatUserWid();
     auto user_info = std::make_shared<UserInfo>(auth_info);
@@ -498,22 +455,6 @@ void ChatDialog::slot_auth_rsp(std::shared_ptr<AuthRsp> auth_rsp)
         return;
     }
     // 在 groupitem 之后插入新项
-    // std::vector<QString>  strs ={"hello world !",
-    //                              "nice to meet u",
-    //                              "New year，new life",
-    //                              "You have to love yourself",
-    //                              "My love is written in the wind ever since the whole world is you"};
-    // std::vector<QString> heads = {
-    //     ":/img/head_1.jpg",
-    //     ":/img/head_2.jpg",
-    //     ":/img/head_3.jpg",
-    //     ":/img/head_4.jpg",
-    //     ":/img/head_5.jpg"
-    // };
-    // int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    // int str_i = randomValue % strs.size();
-    // int head_i = randomValue % heads.size();
-
     auto *chat_user_wid = new ChatUserWid();
     auto user_info = std::make_shared<UserInfo>(auth_rsp);
     chat_user_wid->SetInfo(user_info);
@@ -664,10 +605,13 @@ void ChatDialog::slot_text_chat_msg(std::shared_ptr<TextChatMsg> msg)
         }
         chat_wid->updateLastMsg(msg->_chat_msgs);
         //更新当前聊天页面
+        qDebug() << "update" << msg->_from_uid << " " << _cur_chat_uid;
         UpdateChatMsg(msg->_chat_msgs);
         UserMgr::GetInstance()->AppendFriendChatMsg(msg->_from_uid, msg->_chat_msgs);
+        return;
     }
     //没找到
+    qDebug() << msg->_from_uid << "********************************";
     auto* chat_user_wid = new ChatUserWid();
     auto fi_ptr = UserMgr::GetInstance()->GetFriendById(msg->_from_uid);
     chat_user_wid->SetInfo(std::make_shared<UserInfo>(fi_ptr));

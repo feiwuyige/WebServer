@@ -397,7 +397,7 @@ void LogicSystem::DealChatTextMsg(std::shared_ptr<CSession> session, const short
 		auto session = UserMgr::GetInstance()->GetSession(touid);
 		if (session) {
 			std::string return_str = rtvalue.toStyledString();
-			session->Send(return_str, ID_NOTIFY_AUTH_FRIEND_REQ);
+			session->Send(return_str, ID_NOTIFY_TEXT_CHAT_MSG_REQ);
 		}
 		return;
 	}
