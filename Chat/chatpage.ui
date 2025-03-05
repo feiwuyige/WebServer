@@ -74,7 +74,7 @@
          <item>
           <widget class="QLabel" name="title_lb_2">
            <property name="text">
-            <string>向曾哥学习</string>
+            <string/>
            </property>
           </widget>
          </item>
